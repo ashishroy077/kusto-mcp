@@ -1,0 +1,50 @@
+{
+  "name": "copilot-mcp-bridge",
+  "displayName": "Copilot MCP Bridge",
+  "description": "Bridge between GitHub Copilot Chat and your local MCP server",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:copilot-mcp-bridge.executeCommand",
+    "onCommand:copilot-mcp-bridge.configureServer"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copilot-mcp-bridge.executeCommand",
+        "title": "Execute MCP Command"
+      },
+      {
+        "command": "copilot-mcp-bridge.configureServer",
+        "title": "Configure MCP Server Connection"
+      }
+    ],
+    "configuration": {
+      "title": "Copilot MCP Bridge",
+      "properties": {
+        "copilotMcpBridge.serverUrl": {
+          "type": "string",
+          "default": "http://localhost:8000",
+          "description": "URL of your MCP server"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "eslint": "^8.54.0"
+  }
+}
